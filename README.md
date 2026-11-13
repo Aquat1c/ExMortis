@@ -1,8 +1,8 @@
 # ExMortis
 
-Rollback netplay, rooms with spectators, a Ranked lobby, training tools, online replays and custom colours for the Steam PC version of **Nitroplus Blasterz: Heroines Infinite Duel**.
+Rollback netplay, rooms with spectators, Ranked play with monthly seasons, training tools, online replays and custom colours for the Steam PC version of **Nitroplus Blasterz: Heroines Infinite Duel**.
 
-Version: `[beta-1]`
+Version: `[beta-2]`
 
 The game itself is not included. You need the Steam version of the game.
 
@@ -36,7 +36,7 @@ Everything is in the game's own menus, in English and Japanese. There is no laun
 | --- | --- |
 | Online | Rollback in Player Match, Input Delay 0 to 5 or Auto, Match and Practice rooms, first-to-N sets, rotation, room passwords, join links |
 | Spectating | Waiting players watch live, late join, catch-up |
-| Ranked | An own lobby with challenges, first-to-2 sets and its own VP |
+| Ranked | A shared lobby for up to 240 players: challenge, spectate or train while waiting. First-to-2 sets, ranks and monthly seasons. |
 | Replays | Online matches in the Replay Theater, position bar, speed, frame steps, Take Control |
 | Training | Save states, frame step, slow motion, rewind, hitboxes, frame meter, reversals, 99 s recordings |
 | Colours | 64 custom colours per fighter, an editor in Training, shown online |
@@ -71,7 +71,7 @@ It also fixes a few things in the original game:
 4. Put `dinput8.dll` next to `Nitroplus Blasterz.exe`.
 5. Start the game from Steam as usual.
 
-The window title now ends with `+ExMortis [beta-1]`. If it does not, the mod is not running (see [Troubleshooting](#troubleshooting-and-reporting-a-problem)).
+The window title now shows `+ExMortis [beta-2]`. If it does not, the mod is not running (see [Troubleshooting](#troubleshooting-and-reporting-a-problem)).
 
 If a `dinput8.dll` from another mod is already there, the two cannot be used together. Keep a copy of the other file before you replace it.
 
@@ -88,6 +88,8 @@ The game's own save is never written.
 
 ### Update
 
+Once per launch, ExMortis checks for a newer release. If one is available, the window title adds `(UPDATE AVAILABLE)`. Nothing is downloaded or installed automatically. If you are offline or the check fails, the title stays unchanged.
+
 Close the game and replace `dinput8.dll` with the one from the newest zip on the [Releases page](https://github.com/Aquat1c/ExMortis/releases/latest). Keep the `exmortis` folder.
 
 ### Uninstall
@@ -102,7 +104,7 @@ The first time you open the **Network** menu, a fight starts by itself. This is 
 - At the end a box shows `Performance OK` or `Test failed`, three scores (`FPS`, `Online`, `CPU`, each out of 10) and one line of advice.
 - **It limits nothing.** Every match allows the same 20 frames of rollback.
 - To skip it, press Start and answer Yes.
-- It runs once per PC and per mod file, so it runs again after an update.
+- It runs automatically once on this PC for your Windows user. Updates and DLL swaps do not repeat it, even if you skipped it or it was interrupted.
 - It only runs with V-Sync off (**Options > Display**). With V-Sync on it waits until your next Network menu visit with V-Sync off.
 
 ## Playing online
@@ -209,9 +211,13 @@ Watchers never affect the players. The one exception: at the end of a set, the n
 
 ## Ranked
 
-**Network > RANKED MATCH** opens the ExMortis Ranked lobby. It replaces the game's own Ranked Match while the mod is in. **Network > RANKING** is still the game's own leaderboard.
+ExMortis has its own Ranked mode, with VP, ranks and monthly seasons. Play first-to-2 sets, climb the ranks and track your wins and losses for the month. Your progress is saved, with a backup in Steam Cloud.
 
-One lobby holds everyone on your mod build, up to 100 players. Change tab with LB / RB.
+Open **Network > RANKED MATCH** to join everyone on the same mod build in a shared lobby for up to 240 players. Challenge someone to a set, watch other players live, or practise in Training while you wait for a challenge. You can sort players by rank and set a ping limit to find a suitable opponent.
+
+This takes the place of the game's Ranked Match while the mod is installed. Your original Ranked VP stays untouched. **Network > RANKING** still shows the original game's leaderboard.
+
+Change tab with LB / RB.
 
 | Tab | Shows | Keys |
 | --- | --- | --- |
@@ -382,10 +388,10 @@ A browser or an antivirus tool may warn about a new mod file. That is a caution 
 
 Downloading a file does not run it. `dinput8.dll` runs only when the game starts with it in the game's folder, so check it before you install it. The manual's section 3 has the full steps.
 
-To check that your `dinput8.dll` is the one from the `[beta-1]` release, compare its SHA-256:
+To check that your `dinput8.dll` is the one from the `[beta-2]` release, compare its SHA-256:
 
 ```text
-A18D443E6BAC8CD84184120F7C2BB9A3F965DF79E5209E010539FF6CBF7E3998  dinput8.dll
+BC183DE87EE1649C2B727BA06FDD716972D1876CA4F4DB0FDE6FF7F7F2A14AD9  dinput8.dll
 ```
 
 In PowerShell: `Get-FileHash dinput8.dll`
@@ -418,7 +424,8 @@ Zip them and add the time, what you were doing, whether you were playing or watc
 
 ## Known issues
 
-- **Practice rooms with three or more players** changed late in this build and had little testing. Tell us if Leave, the refill options or the rotation behave oddly there.
+- **The game may still freeze occasionally.** If it happens, send us the logs listed under [What to send](#what-to-send).
+- **Practice rooms with three or more players** still need more testing. Tell us if Leave, the refill options or the rotation behave oddly there.
 
 ## Credits and licences
 
