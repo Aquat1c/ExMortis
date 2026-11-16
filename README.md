@@ -2,13 +2,13 @@
 
 Rollback netplay, rooms with spectators, Ranked play with monthly seasons, training tools, online replays and custom colours for the Steam PC version of **Nitroplus Blasterz: Heroines Infinite Duel**.
 
-Version: `[beta-2]`
+Version: `[beta-3]`
 
 The game itself is not included. You need the Steam version of the game.
 
-Everything is in the game's own menus, in English and Japanese. There is no launcher and no settings program. The full manual, with pictures, is [ExMortis-Manual.pdf](ExMortis-Manual.pdf).
+Everything is in the game's own menus, in English and Japanese. There is no launcher and no settings program. The full manual, with pictures, is [ExMortis-Manual.pdf](ExMortis-Manual.pdf). Japanese manual (日本語マニュアル): [ExMortis-Manual.ja.pdf](ExMortis-Manual.ja.pdf).
 
-**Download:** the newest zip is on the [Releases page](https://github.com/Aquat1c/ExMortis/releases/latest). It holds `dinput8.dll` and the manual.
+**Download:** the newest zip is on the [Releases page](https://github.com/Aquat1c/ExMortis/releases/latest). It holds `dinput8.dll` and the manuals.
 
 ## Contents
 
@@ -36,11 +36,11 @@ Everything is in the game's own menus, in English and Japanese. There is no laun
 | --- | --- |
 | Online | Rollback in Player Match, Input Delay 0 to 5 or Auto, Match and Practice rooms, first-to-N sets, rotation, room passwords, join links |
 | Spectating | Waiting players watch live, late join, catch-up |
-| Ranked | A shared lobby for up to 240 players: challenge, spectate or train while waiting. First-to-2 sets, ranks and monthly seasons. |
+| Ranked | A shared lobby for up to 240 players: challenge, spectate or train while waiting. First-to-2 sets, ranks, monthly seasons and leaderboards. |
 | Replays | Online matches in the Replay Theater, position bar, speed, frame steps, Take Control |
 | Training | Save states, frame step, slow motion, rewind, hitboxes, frame meter, reversals, 99 s recordings |
 | Colours | 64 custom colours per fighter, an editor in Training, shown online |
-| Controls | Keyboard remapping, separate menu keys, pad menu buttons, L3 / R3 |
+| Controls | Keyboard remapping including Start, separate menu keys, pad menu buttons, L3 / R3 |
 | Window | Resizable window, Borderless, Alt+Enter, an even 60 fps |
 | Discord | Status, pictures and invites |
 
@@ -49,6 +49,7 @@ It also fixes a few things in the original game:
 - An even 60 fps. The original ran near 58.8 fps with uneven frames.
 - The screen no longer goes dark in a long fight, watch or replay.
 - No short stall every few seconds from streamed music.
+- Windows no longer slows the game down while its window is not in front.
 - Training recordings no longer stop at 30 seconds or vanish at restart.
 - Cancel on Character Selection in Local Versus and Training steps back one pick.
 - Local Versus results give each player their own choice.
@@ -71,7 +72,7 @@ It also fixes a few things in the original game:
 4. Put `dinput8.dll` next to `Nitroplus Blasterz.exe`.
 5. Start the game from Steam as usual.
 
-The window title now shows `+ExMortis [beta-2]`. If it does not, the mod is not running (see [Troubleshooting](#troubleshooting-and-reporting-a-problem)).
+The window title now shows `+ExMortis [beta-3]`. If it does not, the mod is not running (see [Troubleshooting](#troubleshooting-and-reporting-a-problem)).
 
 If a `dinput8.dll` from another mod is already there, the two cannot be used together. Keep a copy of the other file before you replace it.
 
@@ -109,7 +110,7 @@ The first time you open the **Network** menu, a fight starts by itself. This is 
 
 ## Playing online
 
-Everything online starts in the **Network** menu. Every Player Match fight uses rollback, with up to 20 frames for everyone. There is no switch. The bottom line in a fight shows `Delay N / Ping Nms` (hide it with **Options > Game > Delay / Ping**).
+Everything online starts in the **Network** menu. Every Player Match fight uses rollback, with up to 20 frames for everyone. There is no switch. The bottom line in a fight shows `Delay N / Ping Nms` (hide it with **Options > Game > Delay / Ping**). If the connection goes silent one way during a match, the silent side reopens it before the match gives up.
 
 ### Input Delay
 
@@ -215,7 +216,7 @@ ExMortis has its own Ranked mode, with VP, ranks and monthly seasons. Play first
 
 Open **Network > RANKED MATCH** to join everyone on the same mod build in a shared lobby for up to 240 players. Challenge someone to a set, watch other players live, or practise in Training while you wait for a challenge. You can sort players by rank and set a ping limit to find a suitable opponent.
 
-This takes the place of the game's Ranked Match while the mod is installed. Your original Ranked VP stays untouched. **Network > RANKING** still shows the original game's leaderboard.
+This takes the place of the game's Ranked Match while the mod is installed. Your original Ranked VP stays untouched.
 
 Change tab with LB / RB.
 
@@ -229,6 +230,15 @@ Change tab with LB / RB.
 - **A set** is first to 2 games, each game 2 rounds to win. Between games both pick **Rematch** or **Back to Ranked Lobby**. A draw counts for nobody.
 - **At the end:** **Go to Player Room** (both must pick it, no rating) or **Back to Ranked Lobby**.
 - **Ranked Training:** Confirm on your own row. You stay listed as free, and a challenge takes you straight into the set.
+- Start does not open the Leave box during a Ranked game. The game ends on the result screen.
+
+### Leaderboards
+
+After each set your result goes to the mod's own Steam leaderboards: this month's, and an all-time one that keeps your highest VP.
+
+- **Network > RANKING** keeps the game's own leaderboards and gains an **ExMortis** entry at the end of the top bar: All Time or one month. The lobby's SETTINGS tab has a **Leaderboard** row that opens it.
+- If you played Ranked on an older build, your rows go up the first time you open the Network menu.
+- If the set's last game was saved as a replay, it goes up with your row on this month's board. Press Replay on such a row to download it into the Theater's Ranked tab.
 
 ### VP and grade
 
@@ -237,7 +247,8 @@ Change tab with LB / RB.
 - **Set bonus:** a win in a set gives +1,000 VP, or +2,000 if you also won the game before it in that set.
 - **Same opponent:** the first four wins in a row count in full, then each counts less, down to 10% from the 13th. Only the last 24 hours count.
 - **Seasons** are calendar months. In a new month your VP is halved.
-- Your rating is kept in `exmortis\giga\`, with one copy in Steam Cloud. Player Data shows your Ranked VP, grade and season record.
+- Your rating is kept in `exmortis\giga\`, with one copy in Steam Cloud. If the file is lost, it comes back from Steam Cloud, or from your own leaderboard rows.
+- Player Data shows your Ranked VP, grade and season record. Your titles there are kept.
 
 ## Training
 
@@ -282,7 +293,7 @@ Player Match and Ranked games can be saved and watched in the game's Replay Thea
 - **Save one match:** on the online result screen, press Start on the **Save Replay** line.
 - Practice room fights and matches you only watched are never saved.
 
-**Network > Replay Theater** opens on PLAYER MATCH. Your newest 100 replays per tab stay. **Keep** stores up to 100 more per tab for good. To add a replay, drag a `.nbreplay` file onto the game window.
+**Network > Replay Theater** opens on PLAYER MATCH. Your newest 100 replays per tab stay. **Keep** stores up to 100 more per tab for good. To add a replay, drag a `.nbreplay` file onto the game window. A Ranked set's last game can also be downloaded from RANKING > ExMortis (see [Leaderboards](#leaderboards)).
 
 | Theater list | Pad | Keyboard 1 |
 | --- | --- | --- |
@@ -319,13 +330,15 @@ Every fighter can have up to 64 colours of your own, numbered 22 to 85.
 - Online, each PC shows both players' colours. Only the colours are sent, no file is written on the other PC. A colour you make in a room shows up two Character Selection visits later.
 - To hide one player's colours on your screen, use **Options > Game > Player Colours**.
 
-**The palette editor:** Training pause menu > General > **Palette Editor**. Pick a ramp, then a shade, and change it with HSV or RGB sliders, a colour wheel or a Hex field. A mouse works too. The **Animation** row picks any move by name for the preview. **Save > Save as new** gives the colour the lowest free number.
+**The palette editor:** Training pause menu > General > **Palette Editor**. Pick a ramp, then a shade, and change it with HSV or RGB sliders, a colour wheel or a Hex field. A mouse works too. The **Animation** row picks any move by name for the preview. Its texts follow the game's language, English or Japanese. **Save > Save as new** gives the colour the lowest free number.
 
 Each colour is one `.nbpal` file in `exmortis\palettes`. Share it by copying it (Start on the Palettes page) or sending the file. Add one by dragging it onto the game window, or by putting it in the folder and pressing **Rescan**.
 
 ## Controls
 
 **Keyboard Config** (Options, or the pause menu in Training and Versus) has two lists: **Battle Controls** and **Menu Controls**. Menus never read the battle keys, so changing your battle layout does not move Confirm or Back. Press Confirm on a row, then the new key within 5 seconds. **Start** saves, **Back** undoes this visit. It is not available during an online match.
+
+**Start** (Tab, Enter) is a row in Battle Controls too. The battle Back key (Left Shift, Right Shift) cannot be changed.
 
 | | Keyboard 1 | Keyboard 2 | Pad |
 | --- | --- | --- | --- |
@@ -388,10 +401,10 @@ A browser or an antivirus tool may warn about a new mod file. That is a caution 
 
 Downloading a file does not run it. `dinput8.dll` runs only when the game starts with it in the game's folder, so check it before you install it. The manual's section 3 has the full steps.
 
-To check that your `dinput8.dll` is the one from the `[beta-2]` release, compare its SHA-256:
+To check that your `dinput8.dll` is the one from the `[beta-3]` release, compare its SHA-256:
 
 ```text
-BC183DE87EE1649C2B727BA06FDD716972D1876CA4F4DB0FDE6FF7F7F2A14AD9  dinput8.dll
+809C88193640216E007196F834919EA9FADC00C66639221E531CC3BCCBDF7CF0  dinput8.dll
 ```
 
 In PowerShell: `Get-FileHash dinput8.dll`
