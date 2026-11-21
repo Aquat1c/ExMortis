@@ -2,7 +2,7 @@
 
 A mod for the Steam version of **Nitroplus Blasterz: Heroines Infinite Duel**. It adds rollback netplay, rooms with spectating, its own Ranked mode, replays of online matches, training tools and custom colours. Everything is in the game's own menus, in English and Japanese. There is no launcher.
 
-Version: `[beta-4]`
+Version: `[beta-5]`
 
 - **Download:** the newest zip is on the [Releases page](https://github.com/Aquat1c/ExMortis/releases/latest). It holds `dinput8.dll` and the manuals.
 - **Manual:** [ExMortis-Manual.pdf](ExMortis-Manual.pdf). Japanese manual (日本語マニュアル): [ExMortis-Manual.ja.pdf](ExMortis-Manual.ja.pdf). The manual covers every menu in detail.
@@ -42,7 +42,7 @@ Version: `[beta-4]`
 ## Requirements
 
 - The current Steam version of the game, on Windows 10 or 11. On any other version the mod's menus, netplay and controls stay off.
-- Everyone you play with needs the same `dinput8.dll`, byte for byte. The version is in the window title: `+ExMortis [beta-4]`.
+- Everyone you play with needs the same `dinput8.dll`, byte for byte. The version is in the window title: `+ExMortis [beta-5]`.
 - Players without the mod cannot play with you. They see your room in the list, but they are asked to leave it.
 - The game itself is not included.
 
@@ -56,7 +56,7 @@ Version: `[beta-4]`
 4. Put `dinput8.dll` next to `Nitroplus Blasterz.exe`.
 5. Start the game from Steam as usual.
 
-The window title now shows `+ExMortis [beta-4]`. A `dinput8.dll` from another mod cannot be used with this one. Keep a copy of it before you replace it.
+The window title now shows `+ExMortis [beta-5]`. A `dinput8.dll` from another mod cannot be used with this one. Keep a copy of it before you replace it.
 
 The mod keeps everything in an `exmortis` folder next to the game, including its own copy of your save. The game's own save is never written. To start the copy again from the game's save, close the game and delete `exmortis\SaveData.dat`.
 
@@ -71,10 +71,10 @@ A browser or an antivirus tool may warn about a new mod file. That is a caution 
 
 Check the file before you put it in the game's folder. The manual's section 3 has the full steps.
 
-To check that your `dinput8.dll` is the one from the `[beta-4]` release, compare its SHA-256:
+To check that your `dinput8.dll` is the one from the `[beta-5]` release, compare its SHA-256:
 
 ```text
-D9E12B0DB6E17BD7FC8DA24D825D4F43793DDA9C5DD64F1E8715767447BA242E  dinput8.dll
+84F792BF9230B05A7C37C03744EFD9437698058667C5CC200ACA69BEBE72B598  dinput8.dll
 ```
 
 In PowerShell: `Get-FileHash dinput8.dll`
@@ -96,12 +96,12 @@ The first time you open the **Network** menu, a fight starts by itself. This is 
 Every online fight uses rollback, up to 20 frames, the same for everyone. There is nothing to set up. The bottom line in a fight shows `Delay N / Ping Nms`.
 
 - **Create a room:** **Network > Player Match > Create Room**. A room takes 2 to 6 players. **Room Type** is Match or Practice, and **Password** is optional.
-- **Join a room:** **Network > Player Match > Search Room**, a join link, or a Steam or Discord invite. Links and invites skip the password.
+- **Join a room:** **Network > Player Match > Search Room**, a join link, or a Steam or Discord invite. A link, an invite or Join Game skips the password only for the host's Steam friends.
 - **Join link:** press Reset on the room's command list (Left Shift, or Share / Back on a pad) and paste the link in a chat.
 - **FIRST TO** (top left of the room page) is the set length: `1` to `9`, or `-` for no limit. The host changes it with LB / RB.
 - **ROOM OPTIONS:** ROOM TYPE, ROUNDS, TIME, ROTATION and PASSWORD. Only the host changes them, between fights.
 - **ROTATION** sets who plays after a set: STANDARD, WINNER STAYS, LOSER STAYS, BOTH OUT, FIXED or RANDOM.
-- **AUTO PASS** (the last row of Room Options) is your own. While it is On, your turn goes to the next player in the queue, as long as someone waiting wants to play.
+- **AUTO PASS** (under PASS) is your own. While it is On, your turn goes to the next player in the queue, as long as someone waiting wants to play.
 - **Your turn passes after 15 seconds** if you have not pressed READY and someone waiting wants to play.
 - A player whose game stops responding shows a crossed link icon on the host's room page after 10 seconds, and is removed after 30 seconds.
 - **Practice rooms** have no round timer and refill health, power and partner meter after each combo. Start opens a pause window on your PC only. No replay is saved.
@@ -111,7 +111,7 @@ Every online fight uses rollback, up to 20 frames, the same for everyone. There 
 ### Spectating
 
 - With **Options > Game > Watch Matches** on (the default), your game follows each match while you wait. With it off, use the **Spectate** row.
-- Up to four waiting players can watch. If you enter a room during a match, your watch starts at the next break between rounds.
+- Up to four waiting players can watch. If you enter a room during a match, your watch starts within a few seconds.
 - To leave a watch, press Start and answer Yes.
 - Watchers never affect the players. The one exception: at the end of a set, the next fight waits up to about 10 seconds for watchers still on their way back.
 
@@ -133,6 +133,7 @@ Open **Network > RANKED MATCH**. Everyone on the same mod build shares one lobby
 
 - **PLAYERS:** everyone who is free. Confirm on a player challenges them. They have 20 seconds to accept. Confirm on your own row starts Ranked Training while you wait.
 - **MATCHES:** the sets being played. Confirm watches one.
+- **HISTORY:** your rated games on this PC, newest first, with opponent, both fighters, result and VP change.
 - **SETTINGS:** Input Delay, Nicknames, Allow Spectating, Max Ping, Character and Sort by Rank. The **Leaderboard** row opens the mod's rankings.
 
 A set is first to 2 games, 2 rounds each, with the same fighters. A win in a set gives +1,000 VP, or +2,000 if you also won the game before it. Seasons are calendar months: in a new month your VP is halved. Start does not open the Leave box during a Ranked game. Your rating is kept in `exmortis\giga\`, with one copy in Steam Cloud.
