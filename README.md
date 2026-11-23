@@ -2,7 +2,7 @@
 
 A mod for the Steam version of **Nitroplus Blasterz: Heroines Infinite Duel**. It adds rollback netplay, rooms with spectating, its own Ranked mode, replays of online matches, training tools and custom colours. Everything is in the game's own menus, in English and Japanese. There is no launcher.
 
-Version: `[beta-5]`
+Version: `[beta-6]`
 
 - **Download:** the newest zip is on the [Releases page](https://github.com/Aquat1c/ExMortis/releases/latest). It holds `dinput8.dll` and the manuals.
 - **Manual:** [ExMortis-Manual.pdf](ExMortis-Manual.pdf). Japanese manual (日本語マニュアル): [ExMortis-Manual.ja.pdf](ExMortis-Manual.ja.pdf). The manual covers every menu in detail.
@@ -29,12 +29,13 @@ Version: `[beta-5]`
 - **Rollback netplay** in Player Match: up to 20 frames of rollback for everyone, and an Input Delay setting with Auto.
 - **Rooms** for 2 to 6 players with a set score (first to N), rotation, Auto Pass, passwords, quick comments, join links and Steam or Discord invites.
 - **Practice rooms:** train with another player online.
-- **Spectating:** waiting players watch the room's matches live and can join one that is already running.
+- **Spectating:** waiting players watch the room's matches live, can join one that is already running, and see what each player picks on the result screen.
 - **Ranked:** a shared lobby for up to 240 players, first-to-2 sets, VP, grades, monthly seasons and its own leaderboards.
 - **Replays** of online matches in the Replay Theater, with a position bar, speed, frame steps and Take Control.
 - **Training tools:** save states, frame step, slow motion, rewind, hitboxes, a frame meter, reversals, longer dummy recordings and Al Azif Ex Mortis.
 - **Custom colours:** the game's five unused colours plus up to 59 of your own for every fighter, made in an editor inside the game and shown to other players.
-- **Controls:** keyboard keys can be changed, Start included. Menus have their own keys, and pads get menu buttons and L3 / R3.
+- **Controls:** keyboard keys can be changed, Start included. Menus have their own keys, and pads get menu buttons and L3 / R3. Choose which pad is Controller 1 or 2, put Start on any button, and bind a whole list in one go with Assign All.
+- **Music:** pick the fight's track on the stage select, by soundtrack title, or Random for a new track every game.
 - **Window:** resize it freely, maximize it or use Borderless. Alt+Enter swaps Windowed and Borderless.
 - **Discord:** status, pictures and invites.
 - **Fixes** to the original game: an even 60 frames per second, no screen going dark in a long fight, no stall from streamed music, Training recordings that no longer stop at 30 seconds, and startup logos you can skip.
@@ -42,7 +43,7 @@ Version: `[beta-5]`
 ## Requirements
 
 - The current Steam version of the game, on Windows 10 or 11. On any other version the mod's menus, netplay and controls stay off.
-- Everyone you play with needs the same `dinput8.dll`, byte for byte. The version is in the window title: `+ExMortis [beta-5]`.
+- Everyone you play with needs the same `dinput8.dll`, byte for byte. The version is in the window title: `+ExMortis [beta-6]`.
 - Players without the mod cannot play with you. They see your room in the list, but they are asked to leave it.
 - The game itself is not included.
 
@@ -56,7 +57,7 @@ Version: `[beta-5]`
 4. Put `dinput8.dll` next to `Nitroplus Blasterz.exe`.
 5. Start the game from Steam as usual.
 
-The window title now shows `+ExMortis [beta-5]`. A `dinput8.dll` from another mod cannot be used with this one. Keep a copy of it before you replace it.
+The window title now shows `+ExMortis [beta-6]`. A `dinput8.dll` from another mod cannot be used with this one. Keep a copy of it before you replace it.
 
 The mod keeps everything in an `exmortis` folder next to the game, including its own copy of your save. The game's own save is never written. To start the copy again from the game's save, close the game and delete `exmortis\SaveData.dat`.
 
@@ -71,10 +72,10 @@ A browser or an antivirus tool may warn about a new mod file. That is a caution 
 
 Check the file before you put it in the game's folder. The manual's section 3 has the full steps.
 
-To check that your `dinput8.dll` is the one from the `[beta-5]` release, compare its SHA-256:
+To check that your `dinput8.dll` is the one from the `[beta-6]` release, compare its SHA-256:
 
 ```text
-84F792BF9230B05A7C37C03744EFD9437698058667C5CC200ACA69BEBE72B598  dinput8.dll
+83AAA2EFD0B630641FD86716D4FEEDD428AF479E52E0B1DA469BC3269A483C1B  dinput8.dll
 ```
 
 In PowerShell: `Get-FileHash dinput8.dll`
